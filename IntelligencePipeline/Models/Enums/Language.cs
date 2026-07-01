@@ -8,7 +8,6 @@ namespace IntelligencePipeline.Models.Enums
         Arabic,
         English,
         Russian,
-
         Other
     }
 }

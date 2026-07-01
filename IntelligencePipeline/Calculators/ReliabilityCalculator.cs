@@ -2,12 +2,8 @@ using System;
 
 namespace IntelligencePipeline.Calculators
 {
-    class Program
+    public class ReliabilityCalculator
     {
-        static void Main(string[] args)
-        {
-            
-            
-        }
+        
     }
 }

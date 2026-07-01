@@ -6,7 +6,7 @@ namespace IntelligencePipeline
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Classic World!");
+            
             
         }
     }
