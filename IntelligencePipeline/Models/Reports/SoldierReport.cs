@@ -23,6 +23,11 @@ namespace IntelligencePipeline.Models.Reports
         public override string GetSourceType()
             => "Soldier";
 
+        public override string GetSummary()
+        {
+            return $"ID: {ReportId}| DATE: {Timestamp}| LATITUDE: {Latitude}|  DESCRIPTION: {Description}| STATUS: {Status}";
+        }
+
         public override int CalculateReliabilityScore()
         {
             int score = 4;

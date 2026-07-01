@@ -32,6 +32,11 @@ namespace IntelligencePipeline.Models.Reports
 
             return score;
         }
+
+        public override string GetSummary()
+        {
+            return $"ID: {ReportId}| TYPE: DRONE| DATE: {Timestamp}| LATITUDE: {Latitude}|  DESCRIPTION: {Description}| STATUS: {Status}| ALTITUDE: {Altitude}| IMAGE QUALITY: {ImageQuality}";
+        }
     }
 
 }

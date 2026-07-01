@@ -5,6 +5,7 @@ namespace IntelligencePipeline.Models.Reports
 {
     public abstract class Report
     {
+        private static int _idCounter = 0;
         public int ReportId { get; }
         public DateTime Timestamp{ get; protected set; }
         public double Latitude{ get; protected set; }
@@ -18,11 +19,14 @@ namespace IntelligencePipeline.Models.Reports
 
         protected Report(DateTime timestamp, double latitude,double longitude, string description)
         {
+            _idCounter ++;
+            ReportId = _idCounter;
+
             Timestamp = timestamp;
             Latitude = latitude;
             Longitude = longitude;
             Description = description;
-            Status = ReportStatus.New;
+            // Status = ReportStatus.New;
         }
 
 
@@ -32,7 +36,7 @@ namespace IntelligencePipeline.Models.Reports
 
         public virtual string GetSummary()
         {
-            
+            return $"ID: {ReportId}| DATE: {Timestamp}| LATITUDE: {Latitude}|  DESCRIPTION: {Description}| STATUS: {Status}";
         }
 
 
