@@ -14,30 +14,30 @@ namespace IntelligencePipeline.Calculators
         public Priority Calculate(Report report)
         {
             // check if priority is critical. 
-            bool hasCriticalDescription = ContainsKeyword(report.Description.ToLower(), "missile", "explosion", "attack", "fire");
+            bool hasCriticalDescription = ContainsKeyword(report.Description, "missile", "explosion", "attack", "fire");
             if (hasCriticalDescription){return Priority.Critical;}
             if(report is SignalReport signalCritical)
             {
-                if(ContainsKeyword(signalCritical.Content.ToLower(), "missile", "explosion", "attack", "fire")){return Priority.Critical;}
-                if(ContainsKeyword(signalCritical.Content.ToLower(), "attack") && ContainsKeyword(signalCritical.Content.ToLower(), "target")){return Priority.Critical;}
+                if(ContainsKeyword(signalCritical.Content, "missile", "explosion", "attack", "fire")){return Priority.Critical;}
+                if(ContainsKeyword(signalCritical.Content, "attack") && ContainsKeyword(signalCritical.Content, "target")){return Priority.Critical;}
             }
             if(report is RadarReport radarCritical && radarCritical.Speed >= 800){return Priority.Critical;}
 
             // check if priority is high.
-            bool hasHighDescription = ContainsKeyword(report.Description.ToLower(),"weapon", "suspicious", "border");
+            bool hasHighDescription = ContainsKeyword(report.Description,"weapon", "suspicious", "border");
             if (hasHighDescription){return Priority.High;}
             if(report is DroneReport droneHigh && droneHigh.Altitude < 500){return Priority.High;}
             if(report is RadarReport radarHigh && radarHigh.Speed >= 400){return Priority.High;}
             if(report is SoldierReport soldierHigh)
             {
-                if(ContainsKeyword(report.Description.ToLower(), "movement") && soldierHigh.ConfidenceLevel >= 4)
+                if(ContainsKeyword(report.Description, "movement") && soldierHigh.ConfidenceLevel >= 4)
                 {
                     return Priority.High;
                 }
             }
 
             //  check if priority is medium.
-            bool hasMediumDescription = ContainsKeyword(report.Description.ToLower(),"movement", "vehicle", "activity");
+            bool hasMediumDescription = ContainsKeyword(report.Description,"movement", "vehicle", "activity");
             if(hasMediumDescription){return Priority.Medium;}
             if(report is RadarReport radarMedium && radarMedium.Speed >= 120){return Priority.Medium;}
             if(report.ReliabilityScore >= 7){return Priority.Medium;}
@@ -55,7 +55,7 @@ namespace IntelligencePipeline.Calculators
         {
             foreach (string key in keywords)
             {
-                if(text.Contains(key)){return true;}
+                if(text.Contains(key.ToLower())){return true;}
             }
             return false;
         }
