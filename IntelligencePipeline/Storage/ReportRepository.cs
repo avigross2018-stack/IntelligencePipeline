@@ -104,7 +104,7 @@ namespace IntelligencePipeline.Storage
             return _reports.Count;
         }
 
-        
+
         public int GetCountByStatus(ReportStatus status)
         {
             List<Report> reportsByStatus = new List<Report>();
@@ -117,6 +117,20 @@ namespace IntelligencePipeline.Storage
                 }
             }
             return reportsByStatus.Count;
+        }
+
+        public int GetCountByClassification(Classification classification)
+        {
+            List<Report> reportsByClassification = new List<Report>();
+
+            foreach (var report in _reports)
+            {
+                if(report.Classification == classification)
+                {
+                    reportsByClassification.Add(report);
+                }
+            }
+            return reportsByClassification.Count;
         }       
     }
 }
