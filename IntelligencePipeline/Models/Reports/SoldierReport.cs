@@ -23,10 +23,6 @@ namespace IntelligencePipeline.Models.Reports
         public override string GetSourceType()
             => "Soldier";
 
-        public override string GetSummary()
-        {
-            return $"ID: {ReportId}| DATE: {Timestamp}| LATITUDE: {Latitude}|  DESCRIPTION: {Description}| STATUS: {Status}";
-        }
 
         public override int CalculateReliabilityScore()
         {
@@ -41,6 +37,25 @@ namespace IntelligencePipeline.Models.Reports
             score += ConfidenceLevel;
             return score;
         }
+
+        public override string GetSummary()
+        {
+            return $"""
+            ID: {ReportId}
+            TYPE: SIGNAL
+            DATE: {Timestamp}
+            LATITUDE: {Latitude}
+            DESCRIPTION: {Description}
+            STATUS: {Status}
+            PRIORITY: {Priority}
+            CLASSIFICATION: {Classification}
+            SOLDIER NAME: {SoldierName}
+            SOLDIER ID: {SoldierID}
+            UNIT: {Unit}
+            CONFIDENCE LEVEL: {ConfidenceLevel}
+            REJECTION: {RejectionReason}
+            """;
+        } 
     }
 
     

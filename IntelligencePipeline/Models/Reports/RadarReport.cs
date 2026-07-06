@@ -31,6 +31,24 @@ namespace IntelligencePipeline.Models.Reports
             else if(Speed > 1500){score -= 2;}
 
             return score;
-        }       
+        } 
+
+        public override string GetSummary()
+        {
+            return $"""
+            ID: {ReportId}
+            TYPE: RADAR
+            DATE: {Timestamp}
+            LATITUDE: {Latitude}
+            DESCRIPTION: {Description}
+            STATUS: {Status}
+            PRIORITY: {Priority}
+            CLASSIFICATION: {Classification}
+            SPEED: {Speed}
+            DIRECTION: {Direction}
+            DISTANCE: {Distance}
+            REJECTION: {RejectionReason}
+            """;
+        }      
     }
 }

@@ -135,7 +135,6 @@ namespace IntelligencePipeline.Pipeline
             if(checkIfValid.IsValid)
             {
                 report.Status = ReportStatus.Validated;
-                CalculateMetrics(report);
             }
             else
             {

@@ -39,7 +39,26 @@ namespace IntelligencePipeline.Models.Reports
             }
 
             return score;
-        }     
+        } 
+
+        public override string GetSummary()
+        {
+            return $"""
+            ID: {ReportId}
+            TYPE: SIGNAL
+            DATE: {Timestamp}
+            LATITUDE: {Latitude}
+            DESCRIPTION: {Description}
+            STATUS: {Status}
+            PRIORITY: {Priority}
+            CLASSIFICATION: {Classification}
+            FREQUENCY: {Frequency}
+            CONTENT: {Content}
+            LANGUAGE: {Language}
+            SIGNAL STRENGTH: {SignalStrength}
+            REJECTION: {RejectionReason}
+            """;
+        }    
     }
 
 }

@@ -5,17 +5,14 @@ namespace IntelligencePipeline.Validation
 {
     public class ValidationResult
     {
-        private bool _isValid;
         public bool IsValid{ get;}
-
-        private string _errorMessage;
         public string ErrorMessage{ get; } 
 
 
         public ValidationResult(bool isValid, string errorMessage)
         {
-            _isValid = isValid;
-            _errorMessage = errorMessage;
+            IsValid = isValid;
+            ErrorMessage = errorMessage;
         }
 
         public static ValidationResult Success()

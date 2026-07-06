@@ -35,7 +35,19 @@ namespace IntelligencePipeline.Models.Reports
 
         public override string GetSummary()
         {
-            return $"ID: {ReportId}| TYPE: DRONE| DATE: {Timestamp}| LATITUDE: {Latitude}|  DESCRIPTION: {Description}| STATUS: {Status}| ALTITUDE: {Altitude}| IMAGE QUALITY: {ImageQuality}";
+            return $"""
+            ID: {ReportId}
+            TYPE: DRONE
+            DATE: {Timestamp}
+            LATITUDE: {Latitude}
+            DESCRIPTION: {Description}
+            STATUS: {Status}
+            PRIORITY: {Priority}
+            CLASSIFICATION: {Classification}
+            ALTITUDE: {Altitude}
+            IMAGE QUALITY: {ImageQuality}
+            REJECTION: {RejectionReason}
+            """;
         }
     }
 
